@@ -4,6 +4,8 @@ import FeaturedComponent from './FeaturedComponent';
 import TitleComponent from './TitleComponent';
 import CurrenciesContainer from '../containers/CurrenciesContainer';
 
+require('dotenv').config();
+
 const App = () => (
   <>
     <Header />
