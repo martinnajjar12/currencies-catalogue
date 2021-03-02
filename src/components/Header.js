@@ -1,25 +1,41 @@
 import {
   AppBar,
   Container,
+  createMuiTheme,
+  CssBaseline,
+  ThemeProvider,
   Toolbar,
   Typography,
 } from '@material-ui/core';
 import React from 'react';
 import HideOnScroll from '../containers/HideOnScroll';
 
+const theme = createMuiTheme({
+  typography: {
+    fontFamily: ['lato', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
+  },
+  palette: {
+    primary: {
+      main: '#ec4c8b',
+    },
+    type: 'dark',
+  },
+});
+
 const Header = () => (
-  <>
+  <ThemeProvider theme={theme}>
     <HideOnScroll>
-      <AppBar color="inherit">
+      <AppBar>
         <Toolbar>
           <Container>
-            <Typography variant="h5">Currencies Catalogue</Typography>
+            <Typography variant="h6">Currencies Catalogue</Typography>
           </Container>
         </Toolbar>
       </AppBar>
     </HideOnScroll>
     <Toolbar />
-  </>
+    <CssBaseline />
+  </ThemeProvider>
 );
 
 export default Header;

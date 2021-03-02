@@ -1,25 +1,17 @@
 import React from 'react';
 import {
-  createMuiTheme,
-  CssBaseline,
-  ThemeProvider,
+  Container,
 } from '@material-ui/core';
 import Header from './Header';
-
-const theme = createMuiTheme({
-  typography: {
-    fontFamily: ['lato', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
-  },
-  palette: {
-    type: 'dark',
-  },
-});
+import FeaturedComponent from './FeaturedComponent';
 
 const App = () => (
-  <ThemeProvider theme={theme}>
+  <>
     <Header />
-    <CssBaseline />
-  </ThemeProvider>
+    <Container>
+      <FeaturedComponent />
+    </Container>
+  </>
 );
 
 export default App;
