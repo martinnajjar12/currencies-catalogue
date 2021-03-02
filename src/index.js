@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import '@fontsource/lato';
+import App from './components/App';
 
 ReactDOM.render(
   <React.StrictMode>
