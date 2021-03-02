@@ -1,16 +1,15 @@
 import React from 'react';
-import {
-  Container,
-} from '@material-ui/core';
 import Header from './Header';
 import FeaturedComponent from './FeaturedComponent';
+import TitleComponent from './TitleComponent';
+import CurrenciesContainer from '../containers/CurrenciesContainer';
 
 const App = () => (
   <>
     <Header />
-    <Container>
-      <FeaturedComponent />
-    </Container>
+    <FeaturedComponent />
+    <TitleComponent />
+    <CurrenciesContainer />
   </>
 );
 

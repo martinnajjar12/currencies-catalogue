@@ -24,11 +24,11 @@ const FeaturedComponent = () => (
     <CssBaseline />
     <Grid container>
       <Grid item xs={6}>
-        <img src="./sj" alt="pic" />
+        <img src="https://s2.coinmarketcap.com/static/img/coins/64x64/1.png" alt="pic" />
       </Grid>
       <Grid item xs={6}>
-        <Typography variant="h4">United States</Typography>
-        <Typography variant="subtitle1">USD</Typography>
+        <Typography variant="h4">Bitcoin</Typography>
+        <Typography variant="subtitle1">BTC</Typography>
       </Grid>
     </Grid>
   </ThemeProvider>
