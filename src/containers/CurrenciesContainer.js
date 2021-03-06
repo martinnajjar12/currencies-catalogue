@@ -11,6 +11,7 @@ const CurrenciesContainer = () => {
     const response = await fetch(url, {
       headers: {
         'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': 'http://currencies-catalogue.herokuapp.com/',
         'X-CMC_PRO_API_KEY': env.API_KEY,
       },
     });
