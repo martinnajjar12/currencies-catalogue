@@ -20,6 +20,7 @@
   "scripts": {
     "start": "react-dotenv && react-scripts start",
     "build": "react-dotenv && react-scripts build",
+    "serve": "react-dotenv && serve build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -42,7 +43,9 @@
     ]
   },
   "react-dotenv": {
-    "whitelist": ["API_KEY"]
+    "whitelist": [
+      "API_KEY"
+    ]
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
