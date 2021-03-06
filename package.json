@@ -17,6 +17,7 @@
     "react-scripts": "4.0.3",
     "web-vitals": "^1.1.0"
   },
+  "proxy": "https://pro-api.coinmarketcap.com",
   "scripts": {
     "start": "react-dotenv && react-scripts start",
     "build": "react-dotenv && react-scripts build",

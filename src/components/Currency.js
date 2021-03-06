@@ -13,11 +13,7 @@ const Currency = ({ data }) => (
 
 Currency.propTypes = {
   // eslint-disable-next-line react/forbid-prop-types
-  data: PropTypes.object,
-};
-
-Currency.defaultProps = {
-  data: { name: 'something' },
+  data: PropTypes.array.isRequired,
 };
 
 export default Currency;

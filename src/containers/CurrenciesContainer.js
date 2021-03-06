@@ -3,21 +3,20 @@ import React, { useEffect, useState } from 'react';
 import env from 'react-dotenv';
 import Currency from '../components/Currency';
 
-const url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?start=1&limit=5&convert=USD';
+const url = '/v1/cryptocurrency/listings/latest?start=1&limit=5&convert=USD';
 
 const CurrenciesContainer = () => {
-  const [currency, setCurrency] = useState(null);
+  const [currency, setCurrency] = useState([{ name: 'hello' }]);
   useEffect(async () => {
     const response = await fetch(url, {
       headers: {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': 'http://currencies-catalogue.herokuapp.com/',
         'X-CMC_PRO_API_KEY': env.API_KEY,
       },
     });
     const data = await response.json();
-    console.log(data);
-    setCurrency(data);
+    console.log(data.data);
+    setCurrency(data.data);
   }, []);
 
   return (
