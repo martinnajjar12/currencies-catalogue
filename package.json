@@ -10,6 +10,7 @@
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.8.0",
+    "axios": "^0.21.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -18,7 +19,7 @@
     "react-scripts": "4.0.3",
     "web-vitals": "^1.1.0"
   },
-  "proxy": "https://pro-api.coinmarketcap.com",
+  "proxy": "https://api.nomics.com/v1",
   "scripts": {
     "start": "react-dotenv && react-scripts start",
     "build": "react-dotenv && react-scripts build",

@@ -2,24 +2,19 @@ import { Grid } from '@material-ui/core';
 import { Skeleton } from '@material-ui/lab';
 import React, { useEffect, useState } from 'react';
 import env from 'react-dotenv';
+import axios from 'axios';
 import Currency from '../components/Currency';
 
-const url = '/v1/cryptocurrency/listings/latest?start=1&limit=5&convert=USD';
-
 const CurrenciesContainer = () => {
-  const [currency, setCurrency] = useState([{ name: 'hello' }]);
+  const [currency, setCurrency] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(async () => {
-    const response = await fetch(url, {
-      headers: {
-        'Content-Type': 'application/json',
-        'X-CMC_PRO_API_KEY': env.API_KEY,
-      },
+  useEffect(() => {
+    const baseUrl = `/currencies/ticker?key=${env.API_KEY}&per-page=24&interval=1d&convert=USD&sort=rank`;
+    axios.get(baseUrl).then(response => {
+      setCurrency(response.data);
+      setLoading(false);
     });
-    const data = await response.json();
-    setCurrency(data.data);
-    setLoading(false);
   }, []);
 
   return (
@@ -27,15 +22,51 @@ const CurrenciesContainer = () => {
       { loading
         ? (
           <>
-            <div>
+            <Grid item xs={6}>
+              <Skeleton variant="circle" height={65} width={65} />
+              <Skeleton variant="text" width="80%" />
               <Skeleton variant="text" width="50%" />
-              <Skeleton variant="circle" height={80} width={80} />
-              <Skeleton variant="text" />
+            </Grid>
+            <Grid item xs={6}>
+              <Skeleton variant="circle" height={65} width={65} />
+              <Skeleton variant="text" width="80%" />
               <Skeleton variant="text" width="50%" />
-            </div>
+            </Grid>
+            <Grid item xs={6}>
+              <Skeleton variant="circle" height={65} width={65} />
+              <Skeleton variant="text" width="80%" />
+              <Skeleton variant="text" width="50%" />
+            </Grid>
+            <Grid item xs={6}>
+              <Skeleton variant="circle" height={65} width={65} />
+              <Skeleton variant="text" width="80%" />
+              <Skeleton variant="text" width="50%" />
+            </Grid>
+            <Grid item xs={6}>
+              <Skeleton variant="circle" height={65} width={65} />
+              <Skeleton variant="text" width="80%" />
+              <Skeleton variant="text" width="50%" />
+            </Grid>
+            <Grid item xs={6}>
+              <Skeleton variant="circle" height={65} width={65} />
+              <Skeleton variant="text" width="80%" />
+              <Skeleton variant="text" width="50%" />
+            </Grid>
+            <Grid item xs={6}>
+              <Skeleton variant="circle" height={65} width={65} />
+              <Skeleton variant="text" width="80%" />
+              <Skeleton variant="text" width="50%" />
+            </Grid>
+            <Grid item xs={6}>
+              <Skeleton variant="circle" height={65} width={65} />
+              <Skeleton variant="text" width="80%" />
+              <Skeleton variant="text" width="50%" />
+            </Grid>
           </>
         )
-        : <Currency data={currency} /> }
+        : (
+          <Currency data={currency} />
+        )}
     </Grid>
   );
 };
