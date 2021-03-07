@@ -13,7 +13,7 @@ const CurrenciesContainer = () => {
     const baseUrl = `https://api.nomics.com/v1/currencies/ticker?key=${env.API_KEY}&per-page=24&interval=1d&convert=USD&sort=rank`;
     axios.get(baseUrl, {
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
       },
     }).then(response => {
       setCurrency(response.data);
