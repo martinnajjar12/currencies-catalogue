@@ -10,7 +10,7 @@ const CurrenciesContainer = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const baseUrl = `/currencies/ticker?key=${env.API_KEY}&per-page=24&interval=1d&convert=USD&sort=rank`;
+    const baseUrl = `https://api.nomics.com/v1/currencies/ticker?key=${env.API_KEY}&per-page=24&interval=1d&convert=USD&sort=rank`;
     axios.get(baseUrl).then(response => {
       setCurrency(response.data);
       setLoading(false);
