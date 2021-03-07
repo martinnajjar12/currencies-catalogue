@@ -1,4 +1,3 @@
-// import { Grid } from '@material-ui/core';
 import React from 'react';
 import PropTypes from 'prop-types';
 import CurrencyDetails from './CurrencyDetails';

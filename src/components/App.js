@@ -13,31 +13,35 @@ const App = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const baseUrl = `https://api.nomics.com/v1/currencies/ticker?key=${env.API_KEY}&per-page=24&interval=1d&convert=USD&sort=rank`;
+    const baseUrl = `https://api.nomics.com/v1/currencies/ticker?key=${env.API_KEY}&per-page=25&interval=1d&convert=USD&sort=rank`;
     axios.get(baseUrl).then(response => {
       setCurrency(response.data);
       setLoading(false);
     }).catch(err => console.log(err));
   }, []);
 
-  return loading
-    ? (
-      <>
-        <Grid item xs={6}>
-          <Skeleton variant="circle" width={40} height={40} />
-          <Skeleton variant="text" width={100} />
-          <Skeleton variant="text" width={100} />
-        </Grid>
-      </>
-    )
-    : (
-      <>
-        <Header />
-        <FeaturedComponent currency={currency[0]} />
-        <TitleComponent />
-        <CurrenciesContainer currency={currency} />
-      </>
-    );
+  return (
+    <>
+      <Header />
+      {loading
+        ? (
+          <>
+            <Grid item xs={6}>
+              <Skeleton variant="circle" width={40} height={40} />
+              <Skeleton variant="text" width={100} />
+              <Skeleton variant="text" width={100} />
+            </Grid>
+          </>
+        )
+        : (
+          <>
+            <FeaturedComponent currency={currency[0]} />
+            <TitleComponent />
+            <CurrenciesContainer currency={currency} />
+          </>
+        )}
+    </>
+  );
 };
 
 export default App;

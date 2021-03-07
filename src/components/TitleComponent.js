@@ -19,7 +19,7 @@ const TitleComponent = () => {
   return (
     <>
       <Container className={classes.root}>
-        <Typography className={classes.subtitle1} variant="subtitle1">USD TO OTHER CURRENCIES</Typography>
+        <Typography className={classes.subtitle1} variant="subtitle1">OTHER CURRENCIES</Typography>
       </Container>
     </>
   );
