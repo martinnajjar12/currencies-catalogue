@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { useEffect } from 'react';
 import { Skeleton } from '@material-ui/lab';
 import {
   createMuiTheme,
@@ -7,11 +6,13 @@ import {
   Grid,
   ThemeProvider,
 } from '@material-ui/core';
+import { useDispatch, useSelector } from 'react-redux';
 import { Switch, BrowserRouter, Route } from 'react-router-dom';
 import Header from './Header';
 import FeaturedComponent from './FeaturedComponent';
 import TitleComponent from './TitleComponent';
 import CurrenciesContainer from '../containers/CurrenciesContainer';
+import { FETCH_DATA } from '../actions/index';
 
 const theme = createMuiTheme({
   typography: {
@@ -26,21 +27,14 @@ const theme = createMuiTheme({
 });
 
 const App = () => {
-  const [currency, setCurrency] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const baseUrl = `https://api.nomics.com/v1/currencies/ticker?key=${process.env.REACT_APP_API_KEY}&per-page=25&interval=1d&convert=USD&sort=rank`;
-    axios.get(baseUrl).then(response => {
-      setCurrency(response.data);
-      setLoading(false);
-    });
-  }, []);
+  const state = useSelector(state => state);
+  const dispatch = useDispatch();
+  useEffect(() => dispatch(FETCH_DATA()), []);
 
   return (
     <>
       <Header />
-      {loading
+      {state.length === 0
         ? (
           <>
             <ThemeProvider theme={theme}>
@@ -59,12 +53,12 @@ const App = () => {
             <BrowserRouter>
               <Switch>
                 <Route exact path="/">
-                  <FeaturedComponent currency={currency[0]} />
+                  <FeaturedComponent currency={state[0]} />
                   <TitleComponent />
-                  <CurrenciesContainer currency={currency} />
+                  <CurrenciesContainer currency={state} />
                 </Route>
                 <Route exact path="/pages/:slug">
-                  <FeaturedComponent currency={currency[1]} />
+                  <FeaturedComponent currency={state[1]} />
                   <TitleComponent />
                 </Route>
               </Switch>
