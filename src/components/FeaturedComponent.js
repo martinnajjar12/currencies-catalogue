@@ -9,7 +9,6 @@ import {
 } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { useParams } from 'react-router';
 
 const theme = createMuiTheme({
   typography: {
@@ -34,8 +33,6 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const FeaturedComponent = ({ currency }) => {
-  const { slug } = useParams();
-  console.log(slug);
   const classes = useStyles();
   return (
     <ThemeProvider theme={theme}>

@@ -17,7 +17,7 @@ const App = () => {
     axios.get(baseUrl).then(response => {
       setCurrency(response.data);
       setLoading(false);
-    }).catch(err => console.log(err));
+    });
   }, []);
 
   return (
