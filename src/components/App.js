@@ -12,7 +12,6 @@ import Header from './Header';
 import FeaturedComponent from './FeaturedComponent';
 import TitleComponent from './TitleComponent';
 import CurrenciesContainer from '../containers/CurrenciesContainer';
-import Attribution from './Attribution';
 
 const theme = createMuiTheme({
   typography: {
@@ -63,7 +62,6 @@ const App = () => {
                   <FeaturedComponent currency={currency[0]} />
                   <TitleComponent />
                   <CurrenciesContainer currency={currency} />
-                  <Attribution />
                 </Route>
                 <Route exact path="/pages/:slug">
                   <FeaturedComponent currency={currency[1]} />

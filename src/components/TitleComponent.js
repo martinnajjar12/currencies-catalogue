@@ -1,7 +1,7 @@
 import {
-  Typography,
   makeStyles,
   Container,
+  Link,
 } from '@material-ui/core';
 import React from 'react';
 
@@ -11,6 +11,7 @@ const useStyles = makeStyles({
   },
   subtitle1: {
     fontSize: 14,
+    color: '#fff',
   },
 });
 
@@ -19,7 +20,7 @@ const TitleComponent = () => {
   return (
     <>
       <Container className={classes.root}>
-        <Typography className={classes.subtitle1} variant="subtitle1">OTHER CURRENCIES</Typography>
+        <Link target="_blank" className={classes.subtitle1} href="https://nomics.com">CRYPTO MARKET CAP &amp; PRICING DATA PROVIDED BY NOMICS</Link>
       </Container>
     </>
   );
