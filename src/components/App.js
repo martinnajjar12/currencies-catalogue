@@ -1,12 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Skeleton } from '@material-ui/lab';
-import { Grid } from '@material-ui/core';
+import {
+  createMuiTheme,
+  CssBaseline,
+  Grid,
+  ThemeProvider,
+} from '@material-ui/core';
 import { Switch, BrowserRouter, Route } from 'react-router-dom';
 import Header from './Header';
 import FeaturedComponent from './FeaturedComponent';
 import TitleComponent from './TitleComponent';
 import CurrenciesContainer from '../containers/CurrenciesContainer';
+import Attribution from './Attribution';
+
+const theme = createMuiTheme({
+  typography: {
+    fontFamily: ['lato', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
+  },
+  palette: {
+    background: {
+      default: '#ec4c8a',
+    },
+    type: 'dark',
+  },
+});
 
 const App = () => {
   const [currency, setCurrency] = useState([]);
@@ -26,27 +44,34 @@ const App = () => {
       {loading
         ? (
           <>
-            <Grid item xs={6}>
-              <Skeleton variant="circle" width={40} height={40} />
-              <Skeleton variant="text" width={100} />
-              <Skeleton variant="text" width={100} />
-            </Grid>
+            <ThemeProvider theme={theme}>
+              <CssBaseline />
+              <Grid item xs={6}>
+                <Skeleton variant="circle" width={40} height={40} />
+                <Skeleton variant="text" width={100} />
+                <Skeleton variant="text" width={100} />
+              </Grid>
+            </ThemeProvider>
           </>
         )
         : (
-          <BrowserRouter>
-            <Switch>
-              <Route exact path="/">
-                <FeaturedComponent currency={currency[0]} />
-                <TitleComponent />
-                <CurrenciesContainer currency={currency} />
-              </Route>
-              <Route exact path="/pages/:slug">
-                <FeaturedComponent currency={currency[1]} />
-                <TitleComponent />
-              </Route>
-            </Switch>
-          </BrowserRouter>
+          <ThemeProvider theme={theme}>
+            <CssBaseline />
+            <BrowserRouter>
+              <Switch>
+                <Route exact path="/">
+                  <FeaturedComponent currency={currency[0]} />
+                  <TitleComponent />
+                  <CurrenciesContainer currency={currency} />
+                  <Attribution />
+                </Route>
+                <Route exact path="/pages/:slug">
+                  <FeaturedComponent currency={currency[1]} />
+                  <TitleComponent />
+                </Route>
+              </Switch>
+            </BrowserRouter>
+          </ThemeProvider>
         )}
     </>
   );

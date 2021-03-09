@@ -1,26 +1,12 @@
 import {
   Grid,
   Typography,
-  createMuiTheme,
-  ThemeProvider,
   CssBaseline,
   Avatar,
   makeStyles,
 } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import React from 'react';
-
-const theme = createMuiTheme({
-  typography: {
-    fontFamily: ['lato', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
-  },
-  palette: {
-    background: {
-      default: '#ec4c8a',
-    },
-    type: 'dark',
-  },
-});
 
 const useStyles = makeStyles(theme => ({
   containerPadding: {
@@ -35,7 +21,7 @@ const useStyles = makeStyles(theme => ({
 const FeaturedComponent = ({ currency }) => {
   const classes = useStyles();
   return (
-    <ThemeProvider theme={theme}>
+    <>
       <CssBaseline />
       <Grid container className={classes.containerPadding}>
         <Grid item xs={6}>
@@ -46,7 +32,7 @@ const FeaturedComponent = ({ currency }) => {
           <Typography variant="subtitle1">BTC</Typography>
         </Grid>
       </Grid>
-    </ThemeProvider>
+    </>
   );
 };
 
