@@ -8,7 +8,7 @@ import {
   Typography,
 } from '@material-ui/core';
 import React from 'react';
-import HideOnScroll from '../containers/HideOnScroll';
+import HideOnScroll from '../utils/HideOnScroll';
 
 const theme = createMuiTheme({
   typography: {

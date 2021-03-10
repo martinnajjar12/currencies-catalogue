@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import '@fontsource/lato';
-import App from './components/App';
+import App from './containers/App';
 import store from './store';
 
 ReactDOM.render(

@@ -7,7 +7,7 @@ import React from 'react';
 
 const useStyles = makeStyles({
   root: {
-    backgroundColor: '#cf4278',
+    backgroundColor: '#df4783',
   },
   subtitle1: {
     fontSize: 14,

@@ -8,14 +8,21 @@ import {
 } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
 import { Switch, BrowserRouter, Route } from 'react-router-dom';
-import Header from './Header';
-import FeaturedComponent from './FeaturedComponent';
-import TitleComponent from './TitleComponent';
-import CurrenciesContainer from '../containers/CurrenciesContainer';
+import Header from '../components/Header';
+import FeaturedComponent from '../components/FeaturedComponent';
+import TitleComponent from '../components/TitleComponent';
+import CurrenciesContainer from './CurrenciesContainer';
 import { FETCH_DATA } from '../actions/index';
-import FilterCurrency from './FilterCurrency';
+import FilterCurrency from '../components/FilterCurrency';
 
 const theme = createMuiTheme({
+  overrides: {
+    MuiPaper: {
+      root: {
+        color: '#323232',
+      },
+    },
+  },
   typography: {
     fontFamily: ['lato', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
   },
@@ -23,7 +30,9 @@ const theme = createMuiTheme({
     background: {
       default: '#ec4c8a',
     },
-    type: 'dark',
+    text: {
+      primary: '#fff',
+    },
   },
 });
 

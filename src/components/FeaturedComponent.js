@@ -4,6 +4,7 @@ import {
   CssBaseline,
   Avatar,
   makeStyles,
+  Container,
 } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -15,6 +16,7 @@ const useStyles = makeStyles(theme => ({
   xLarge: {
     width: theme.spacing(10),
     height: theme.spacing(10),
+    margin: '0 auto',
   },
 }));
 
@@ -23,15 +25,17 @@ const FeaturedComponent = ({ currency }) => {
   return (
     <>
       <CssBaseline />
-      <Grid container className={classes.containerPadding}>
-        <Grid item xs={6}>
-          <Avatar src={currency.logo_url} alt={currency.name} className={classes.xLarge} />
+      <Container>
+        <Grid container className={classes.containerPadding}>
+          <Grid item xs={6}>
+            <Avatar src={currency.logo_url} alt={currency.name} className={classes.xLarge} />
+          </Grid>
+          <Grid item xs={6}>
+            <Typography variant="h4">{currency.name}</Typography>
+            <Typography variant="subtitle1">{currency.symbol}</Typography>
+          </Grid>
         </Grid>
-        <Grid item xs={6}>
-          <Typography variant="h4">Bitcoin</Typography>
-          <Typography variant="subtitle1">BTC</Typography>
-        </Grid>
-      </Grid>
+      </Container>
     </>
   );
 };

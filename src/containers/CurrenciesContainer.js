@@ -1,12 +1,14 @@
-import { Grid } from '@material-ui/core';
+import { Container, Grid } from '@material-ui/core';
 import React from 'react';
 import PropTypes from 'prop-types';
 import Currency from '../components/Currency';
 
 const CurrenciesContainer = ({ currency }) => (
-  <Grid container>
-    <Currency data={currency} />
-  </Grid>
+  <Container disableGutters>
+    <Grid container>
+      <Currency data={currency} />
+    </Grid>
+  </Container>
 );
 
 CurrenciesContainer.propTypes = {
