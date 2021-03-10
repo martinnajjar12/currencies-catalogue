@@ -64,12 +64,12 @@ const App = () => {
               <Switch>
                 <Route exact path="/">
                   <FilterCurrency currency={state} />
-                  <FeaturedComponent currency={state[0]} />
+                  <FeaturedComponent currencies={state} />
                   <TitleComponent />
                   <CurrenciesContainer currency={state} />
                 </Route>
-                <Route exact path="/pages/:slug">
-                  <FeaturedComponent currency={state[0]} />
+                <Route exact path="/currency/:id">
+                  <FeaturedComponent currencies={state} />
                   <TitleComponent />
                 </Route>
               </Switch>

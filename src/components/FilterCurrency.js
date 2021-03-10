@@ -18,7 +18,7 @@ const useStyles = makeStyles({
       color: '#fff',
     },
     '& fieldset': {
-      borderColor: '#fff',
+      borderColor: '#eee',
     },
     '&.Mui-focused label': {
       color: '#fff',

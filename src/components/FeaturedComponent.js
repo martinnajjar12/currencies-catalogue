@@ -8,8 +8,13 @@ import {
 } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import React from 'react';
+import { Link, useParams } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
+  anchorColor: {
+    color: '#fff',
+    textDecoration: 'none',
+  },
   containerPadding: {
     padding: 15,
   },
@@ -20,29 +25,59 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const FeaturedComponent = ({ currency }) => {
+const FeaturedComponent = ({ currencies }) => {
   const classes = useStyles();
+  const { id } = useParams();
+  if (id) {
+    const thisCurrency = currencies.find(currency => currency.id === id);
+    return (
+      <>
+        <CssBaseline />
+        <Container>
+          <Grid container className={classes.containerPadding}>
+            <Grid item xs={6}>
+              <Avatar
+                src={thisCurrency.logo_url}
+                alt={thisCurrency.name}
+                className={classes.xLarge}
+              />
+            </Grid>
+            <Grid item xs={6}>
+              <Typography variant="h4">{thisCurrency.name}</Typography>
+              <Typography variant="subtitle1">{thisCurrency.symbol}</Typography>
+            </Grid>
+          </Grid>
+        </Container>
+      </>
+    );
+  }
   return (
     <>
       <CssBaseline />
-      <Container>
-        <Grid container className={classes.containerPadding}>
-          <Grid item xs={6}>
-            <Avatar src={currency.logo_url} alt={currency.name} className={classes.xLarge} />
+      <Link to={`/currency/${currencies[0].id}`} className={classes.anchorColor}>
+        <Container>
+          <Grid container className={classes.containerPadding}>
+            <Grid item xs={6}>
+              <Avatar
+                src={currencies[0].logo_url}
+                alt={currencies[0].name}
+                className={classes.xLarge}
+              />
+            </Grid>
+            <Grid item xs={6}>
+              <Typography variant="h4">{currencies[0].name}</Typography>
+              <Typography variant="subtitle1">{currencies[0].symbol}</Typography>
+            </Grid>
           </Grid>
-          <Grid item xs={6}>
-            <Typography variant="h4">{currency.name}</Typography>
-            <Typography variant="subtitle1">{currency.symbol}</Typography>
-          </Grid>
-        </Grid>
-      </Container>
+        </Container>
+      </Link>
     </>
   );
 };
 
 FeaturedComponent.propTypes = {
   // eslint-disable-next-line react/forbid-prop-types
-  currency: PropTypes.object.isRequired,
+  currencies: PropTypes.array.isRequired,
 };
 
 export default FeaturedComponent;

@@ -6,6 +6,7 @@ import {
 } from '@material-ui/core';
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 let counter = 0;
 const whichBackground = counter => {
@@ -16,6 +17,10 @@ const whichBackground = counter => {
 };
 
 const useStyles = makeStyles(theme => ({
+  anchorColor: {
+    color: '#fff',
+    textDecoration: 'none',
+  },
   large: {
     width: theme.spacing(7),
     height: theme.spacing(7),
@@ -46,9 +51,11 @@ const CurrencyDetails = ({ data }) => {
           xs={6}
           className={classes.containerPadding}
         >
-          <Avatar alt={currency.name} src={currency.logo_url} variant="rounded" className={classes.large} />
-          <Typography variant="h6" align="right">{currency.name}</Typography>
-          <Typography variant="subtitle2" align="right">{currency.symbol}</Typography>
+          <Link className={classes.anchorColor} to={`/currency/${currency.id}`}>
+            <Avatar alt={currency.name} src={currency.logo_url} variant="rounded" className={classes.large} />
+            <Typography variant="h6" align="right">{currency.name}</Typography>
+            <Typography variant="subtitle2" align="right">{currency.symbol}</Typography>
+          </Link>
         </Grid>
       );
     })
