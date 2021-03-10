@@ -14,6 +14,7 @@ import TitleComponent from '../components/TitleComponent';
 import CurrenciesContainer from './CurrenciesContainer';
 import { FETCH_DATA } from '../actions/index';
 import FilterCurrency from '../components/FilterCurrency';
+import Details from '../components/Details';
 
 const theme = createMuiTheme({
   overrides: {
@@ -71,6 +72,7 @@ const App = () => {
                 <Route exact path="/currency/:id">
                   <FeaturedComponent currencies={state} />
                   <TitleComponent />
+                  <Details currencies={state} />
                 </Route>
               </Switch>
             </BrowserRouter>
