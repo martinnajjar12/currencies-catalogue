@@ -13,6 +13,7 @@ import FeaturedComponent from './FeaturedComponent';
 import TitleComponent from './TitleComponent';
 import CurrenciesContainer from '../containers/CurrenciesContainer';
 import { FETCH_DATA } from '../actions/index';
+import FilterCurrency from './FilterCurrency';
 
 const theme = createMuiTheme({
   typography: {
@@ -53,12 +54,13 @@ const App = () => {
             <BrowserRouter>
               <Switch>
                 <Route exact path="/">
+                  <FilterCurrency currency={state} />
                   <FeaturedComponent currency={state[0]} />
                   <TitleComponent />
                   <CurrenciesContainer currency={state} />
                 </Route>
                 <Route exact path="/pages/:slug">
-                  <FeaturedComponent currency={state[1]} />
+                  <FeaturedComponent currency={state[0]} />
                   <TitleComponent />
                 </Route>
               </Switch>
