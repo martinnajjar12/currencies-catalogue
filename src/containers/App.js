@@ -1,9 +1,7 @@
 import React, { useEffect } from 'react';
-import { Skeleton } from '@material-ui/lab';
 import {
   createMuiTheme,
   CssBaseline,
-  Grid,
   ThemeProvider,
 } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
@@ -15,6 +13,7 @@ import CurrenciesContainer from './CurrenciesContainer';
 import { FETCH_DATA } from '../actions/index';
 import FilterCurrency from '../components/FilterCurrency';
 import Details from '../components/Details';
+import HomePage from '../skeleton/HomePage';
 
 const theme = createMuiTheme({
   overrides: {
@@ -49,11 +48,7 @@ const App = () => {
           <>
             <ThemeProvider theme={theme}>
               <CssBaseline />
-              <Grid item xs={6}>
-                <Skeleton variant="circle" width={40} height={40} />
-                <Skeleton variant="text" width={100} />
-                <Skeleton variant="text" width={100} />
-              </Grid>
+              <HomePage />
             </ThemeProvider>
           </>
         )
