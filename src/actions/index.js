@@ -10,10 +10,10 @@ const LOADING = data => ({
 const FETCH_DATA = () => {
   const request = axios.get(baseUrl);
   return dispatch => {
-    request.then(({ data }) => {
+    request.then(() => {
       dispatch({
         type: 'FETCH DATA',
-        payload: data,
+        payload: [],
       });
     });
   };

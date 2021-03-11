@@ -1,4 +1,4 @@
-import { Grid, makeStyles } from '@material-ui/core';
+import { Container, Grid, makeStyles } from '@material-ui/core';
 import { Skeleton } from '@material-ui/lab';
 import Currencies from './Currencies';
 import FeaturedComponent from './FeaturedComponent';
@@ -16,19 +16,21 @@ const HomePage = () => {
   return (
     <>
       <Header />
-      <FilterComponent />
-      <FeaturedComponent />
-      <Skeleton animation="wave" variant="rect" height={40} className={classes.dividerMargin} />
-      <Grid container>
-        <Currencies />
-        <Currencies />
-        <Currencies />
-        <Currencies />
-        <Currencies />
-        <Currencies />
-        <Currencies />
-        <Currencies />
-      </Grid>
+      <Container>
+        <FilterComponent />
+        <FeaturedComponent />
+        <Skeleton animation="wave" variant="rect" height={40} className={classes.dividerMargin} />
+        <Grid container>
+          <Currencies />
+          <Currencies />
+          <Currencies />
+          <Currencies />
+          <Currencies />
+          <Currencies />
+          <Currencies />
+          <Currencies />
+        </Grid>
+      </Container>
     </>
   );
 };
