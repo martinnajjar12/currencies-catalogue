@@ -7,13 +7,13 @@ const LOADING = data => ({
   payload: data,
 });
 
-const FETCH_DATA = () => {
+const FETCH_DATA = ({ data }) => {
   const request = axios.get(baseUrl);
   return dispatch => {
     request.then(() => {
       dispatch({
         type: 'FETCH DATA',
-        payload: [],
+        payload: data,
       });
     });
   };
