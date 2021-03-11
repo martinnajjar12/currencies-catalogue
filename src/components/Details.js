@@ -5,6 +5,7 @@ import {
   Typography,
 } from '@material-ui/core';
 import React from 'react';
+import NumberFormat from 'react-number-format';
 import { useParams } from 'react-router';
 import PropTypes from 'prop-types';
 
@@ -59,8 +60,12 @@ const Details = ({ currencies }) => {
         <div className={classes.divWidth}>
           <Typography align="left">USD Price</Typography>
           <Typography>
-            &#x24;
-            {parseFloat(thisCurrency.price).toFixed(2)}
+            <NumberFormat
+              value={parseFloat(thisCurrency.price).toFixed(2)}
+              thousandSeparator
+              displayType="text"
+              prefix="$"
+            />
           </Typography>
         </div>
       </Card>
@@ -68,10 +73,13 @@ const Details = ({ currencies }) => {
         className={`${classes.card} ${classes.oddCard}`}
       >
         <div className={classes.divWidth}>
-          <Typography align="left">USD price percent</Typography>
+          <Typography align="left">USD Price Percent</Typography>
           <Typography>
-            {(parseFloat(thisCurrency['1d'].price_change_pct) * 100).toFixed(2)}
-            %
+            <NumberFormat
+              value={(parseFloat(thisCurrency['1d'].price_change_pct) * 100).toFixed(2)}
+              displayType="text"
+              suffix="%"
+            />
           </Typography>
         </div>
       </Card>
@@ -81,8 +89,12 @@ const Details = ({ currencies }) => {
         <div className={classes.divWidth}>
           <Typography align="left">Market Cap</Typography>
           <Typography>
-            &#x24;
-            {thisCurrency.market_cap}
+            <NumberFormat
+              value={thisCurrency.market_cap}
+              displayType="text"
+              prefix="$"
+              thousandSeparator
+            />
           </Typography>
         </div>
       </Card>
@@ -92,8 +104,12 @@ const Details = ({ currencies }) => {
         <div className={classes.divWidth}>
           <Typography align="left">Volume</Typography>
           <Typography>
-            &#x24;
-            {parseFloat(thisCurrency['1d'].volume).toFixed(2)}
+            <NumberFormat
+              value={parseFloat(thisCurrency['1d'].volume).toFixed(2)}
+              displayType="text"
+              prefix="$"
+              thousandSeparator
+            />
           </Typography>
         </div>
       </Card>

@@ -43,7 +43,7 @@ const App = () => {
   useEffect(() => dispatch(FETCH_DATA()), []);
 
   return (
-    <ThemeProvider theme={theme}>
+    <>
       {state.length === 0
         ? (
           <>
@@ -79,7 +79,7 @@ const App = () => {
             </BrowserRouter>
           </ThemeProvider>
         )}
-    </ThemeProvider>
+    </>
   );
 };
 
