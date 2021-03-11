@@ -8,7 +8,7 @@ import React from 'react';
 import { useParams } from 'react-router';
 import PropTypes from 'prop-types';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   noPadding: {
     padding: 0,
   },
@@ -17,9 +17,6 @@ const useStyles = makeStyles({
     height: 80,
     borderRadius: 0,
     color: '#fff',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
     boxShadow: 'none',
     padding: 15,
   },
@@ -29,7 +26,18 @@ const useStyles = makeStyles({
   evenCard: {
     backgroundColor: '#db4681',
   },
-});
+  divWidth: {
+    width: '100%',
+    height: '100%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    [theme.breakpoints.up('sm')]: {
+      width: '50%',
+      margin: '0 auto',
+    },
+  },
+}));
 
 const Details = ({ currencies }) => {
   const classes = useStyles();
@@ -40,44 +48,54 @@ const Details = ({ currencies }) => {
       <Card
         className={`${classes.card} ${classes.oddCard}`}
       >
-        <Typography align="left">Rank</Typography>
-        <Typography>{thisCurrency.rank}</Typography>
+        <div className={classes.divWidth}>
+          <Typography align="left">Rank</Typography>
+          <Typography>{thisCurrency.rank}</Typography>
+        </div>
       </Card>
       <Card
         className={`${classes.card} ${classes.evenCard}`}
       >
-        <Typography align="left">USD Price</Typography>
-        <Typography>
-          &#x24;
-          {parseFloat(thisCurrency.price).toFixed(2)}
-        </Typography>
+        <div className={classes.divWidth}>
+          <Typography align="left">USD Price</Typography>
+          <Typography>
+            &#x24;
+            {parseFloat(thisCurrency.price).toFixed(2)}
+          </Typography>
+        </div>
       </Card>
       <Card
         className={`${classes.card} ${classes.oddCard}`}
       >
-        <Typography align="left">USD price percent</Typography>
-        <Typography>
-          {(parseFloat(thisCurrency['1d'].price_change_pct) * 100).toFixed(2)}
-          %
-        </Typography>
+        <div className={classes.divWidth}>
+          <Typography align="left">USD price percent</Typography>
+          <Typography>
+            {(parseFloat(thisCurrency['1d'].price_change_pct) * 100).toFixed(2)}
+            %
+          </Typography>
+        </div>
       </Card>
       <Card
         className={`${classes.card} ${classes.evenCard}`}
       >
-        <Typography align="left">Market Cap</Typography>
-        <Typography>
-          &#x24;
-          {thisCurrency.market_cap}
-        </Typography>
+        <div className={classes.divWidth}>
+          <Typography align="left">Market Cap</Typography>
+          <Typography>
+            &#x24;
+            {thisCurrency.market_cap}
+          </Typography>
+        </div>
       </Card>
       <Card
         className={`${classes.card} ${classes.oddCard}`}
       >
-        <Typography align="left">Volume</Typography>
-        <Typography>
-          &#x24;
-          {parseFloat(thisCurrency['1d'].volume).toFixed(2)}
-        </Typography>
+        <div className={classes.divWidth}>
+          <Typography align="left">Volume</Typography>
+          <Typography>
+            &#x24;
+            {parseFloat(thisCurrency['1d'].volume).toFixed(2)}
+          </Typography>
+        </div>
       </Card>
     </Container>
   );

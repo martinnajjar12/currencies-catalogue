@@ -43,8 +43,7 @@ const App = () => {
   useEffect(() => dispatch(FETCH_DATA()), []);
 
   return (
-    <>
-      <Header />
+    <ThemeProvider theme={theme}>
       {state.length === 0
         ? (
           <>
@@ -64,12 +63,14 @@ const App = () => {
             <BrowserRouter>
               <Switch>
                 <Route exact path="/">
+                  <Header />
                   <FilterCurrency currency={state} />
                   <FeaturedComponent currencies={state} />
                   <TitleComponent />
                   <CurrenciesContainer currency={state} />
                 </Route>
                 <Route exact path="/currency/:id">
+                  <Header />
                   <FeaturedComponent currencies={state} />
                   <TitleComponent />
                   <Details currencies={state} />
@@ -78,7 +79,7 @@ const App = () => {
             </BrowserRouter>
           </ThemeProvider>
         )}
-    </>
+    </ThemeProvider>
   );
 };
 
