@@ -12,7 +12,6 @@ describe('FETCH_DATA', () => {
   beforeEach(() => {
     moxios.install();
   });
-
   afterEach(() => {
     moxios.uninstall();
   });

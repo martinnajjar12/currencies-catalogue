@@ -1,11 +1,9 @@
 const initialState = [];
 
-const filterReducer = (state = initialState, action) => {
+const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'FILTER':
       return [state.find(currency => currency.name === action.payload)];
-    case 'LOADING':
-      return [];
     case 'FETCH DATA':
       return [...action.payload];
     default:
@@ -13,4 +11,4 @@ const filterReducer = (state = initialState, action) => {
   }
 };
 
-export default filterReducer;
+export default rootReducer;
