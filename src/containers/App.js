@@ -8,9 +8,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Switch, BrowserRouter, Route } from 'react-router-dom';
 import Header from '../components/Header';
 import FeaturedComponent from '../components/FeaturedComponent';
-import TitleComponent from '../components/TitleComponent';
+import Attribution from '../components/Attribution';
 import CurrenciesContainer from './CurrenciesContainer';
-import { FETCH_DATA } from '../actions/index';
+import { FETCH_DATA, FILTER } from '../actions/index';
 import FilterCurrency from '../components/FilterCurrency';
 import Details from '../components/Details';
 import HomePage from '../skeleton/HomePage';
@@ -40,6 +40,9 @@ const App = () => {
   const state = useSelector(state => state);
   const dispatch = useDispatch();
   useEffect(() => dispatch(FETCH_DATA()), []);
+  const handleFilterChange = name => {
+    dispatch(FILTER(name));
+  };
 
   return (
     <>
@@ -59,15 +62,15 @@ const App = () => {
               <Switch>
                 <Route exact path="/">
                   <Header />
-                  <FilterCurrency currency={state} />
+                  <FilterCurrency currency={state} filterHandler={handleFilterChange} />
                   <FeaturedComponent currencies={state} />
-                  <TitleComponent />
-                  <CurrenciesContainer currency={state} />
+                  <Attribution />
+                  <CurrenciesContainer currencies={state} />
                 </Route>
                 <Route exact path="/currency/:id">
                   <Header />
                   <FeaturedComponent currencies={state} />
-                  <TitleComponent />
+                  <Attribution />
                   <Details currencies={state} />
                 </Route>
               </Switch>

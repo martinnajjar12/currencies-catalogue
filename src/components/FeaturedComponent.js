@@ -54,8 +54,8 @@ const FeaturedComponent = ({ currencies }) => {
   return (
     <>
       <CssBaseline />
-      <Link to={`/currency/${currencies[0].id}`} className={classes.anchorColor}>
-        <Container>
+      <Container>
+        <Link to={`/currency/${currencies[0].id}`} className={classes.anchorColor}>
           <Grid container className={classes.containerPadding}>
             <Grid item xs={6}>
               <Avatar
@@ -69,8 +69,8 @@ const FeaturedComponent = ({ currencies }) => {
               <Typography variant="subtitle1">{currencies[0].symbol}</Typography>
             </Grid>
           </Grid>
-        </Container>
-      </Link>
+        </Link>
+      </Container>
     </>
   );
 };

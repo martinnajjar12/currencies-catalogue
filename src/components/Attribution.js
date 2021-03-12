@@ -15,7 +15,7 @@ const useStyles = makeStyles({
   },
 });
 
-const TitleComponent = () => {
+const Attribution = () => {
   const classes = useStyles();
   return (
     <>
@@ -26,4 +26,4 @@ const TitleComponent = () => {
   );
 };
 
-export default TitleComponent;
+export default Attribution;

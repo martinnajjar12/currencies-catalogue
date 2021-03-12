@@ -44,6 +44,7 @@ const Details = ({ currencies }) => {
   const classes = useStyles();
   const { id } = useParams();
   const thisCurrency = currencies.find(currency => currency.id === id);
+
   return (
     <Container className={classes.noPadding}>
       <Card

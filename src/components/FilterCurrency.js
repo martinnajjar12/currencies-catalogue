@@ -5,7 +5,7 @@ import { Autocomplete } from '@material-ui/lab';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { FETCH_DATA, FILTER } from '../actions';
+import { FETCH_DATA } from '../actions';
 
 const useStyles = makeStyles({
   root: {
@@ -32,12 +32,9 @@ const useStyles = makeStyles({
   },
 });
 
-const FilterCurrency = ({ currency }) => {
+const FilterCurrency = ({ currency, filterHandler }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
-  const handleFilterChange = name => {
-    dispatch(FILTER(name));
-  };
 
   return (
     <Container>
@@ -47,14 +44,14 @@ const FilterCurrency = ({ currency }) => {
         getOptionLabel={option => option.name}
         onChange={e => {
           if (e.target.textContent) {
-            handleFilterChange(e.target.textContent);
+            filterHandler(e.target.textContent);
           } else {
             dispatch(FETCH_DATA());
           }
         }}
         onKeyUp={e => {
           if (e.key === 'Enter') {
-            handleFilterChange(e.target.value);
+            filterHandler(e.target.value);
           }
         }}
         // eslint-disable-next-line react/jsx-props-no-spreading
@@ -67,6 +64,7 @@ const FilterCurrency = ({ currency }) => {
 FilterCurrency.propTypes = {
   // eslint-disable-next-line react/forbid-prop-types
   currency: PropTypes.array.isRequired,
+  filterHandler: PropTypes.func.isRequired,
 };
 
 export default FilterCurrency;
