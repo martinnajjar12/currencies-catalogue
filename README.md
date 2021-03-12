@@ -1,70 +1,112 @@
-# Getting Started with Create React App
+![](https://img.shields.io/badge/Microverse-blueviolet)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Currencies Catalogue
 
-## Available Scripts
+> A React Redux application that fetches an API and list the top 25 available CryptoCurrencies.
 
-In the project directory, you can run:
+![screenshot](./desktop_screenshot.png)
 
-### `npm start`
+<p align="center">Desktop view</p>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![screenshot](./mobile_screenshot.png)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<p>Mobile view</p>
 
-### `npm test`
+<p>Additional description about the project and its features.</p>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Built With
 
-### `npm run build`
+- ReactJS
+- Redux
+- Redux thunk
+- Material UI
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Tested With
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Jest
+- Enzyme
+- redux-mock-store
+- moxios
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Live Demo
 
-### `npm run eject`
+[Live Demo Link](https://currencies-catalogue.netlify.app)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Getting Started
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+To get a local copy up and running follow these simple example steps.
 
-## Learn More
+### Prerequisites
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- NodeJS
+- Code Editor
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Setup
 
-### Code Splitting
+Open up a terminal (after installing Git) and run the following command:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```
+  git clone https://github.com/martinnajjar12/currencies-catalogue
+```
 
-### Analyzing the Bundle Size
+and hit Enter.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+**OR**
 
-### Making a Progressive Web App
+Download a zip version of the project from the above button.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Install
 
-### Advanced Configuration
+Run in your command line:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```
+  npm install
+```
 
-### Deployment
+### Usage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+In order to open it in your browser, you need to dispatch the following command:
 
-### `npm run build` fails to minify
+```
+  npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**Note:** Please be noted that API may not work on your local computer because you don't have the API KEY.
+
+### Run tests
+
+To test the application please run this command:
+
+```
+  npm test
+```
+
+## Authors
+
+👤 **Martin Najjar**
+
+- GitHub: [Martin Najjar](https://github.com/martinnajjar12)
+- Twitter: [Martin Najjar](https://twitter.com/martin_najjar)
+- LinkedIn: [Martin Najjar](https://linkedin.com/in/martinnajjar12)
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](https://github.com/martinnajjar12/currencies-catalogue/issues).
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## Acknowledgments
+
+- [Nomics](https://nomics.com) for providing the API
+- Design by [Nelson Sakwa](https://www.behance.net/sakwadesignstudio)
+- Microverse
+
+## 📝 License
+
+This project is [MIT](https://github.com/martinnajjar12/currencies-catalogue/blob/development/LICENSE) licensed.
