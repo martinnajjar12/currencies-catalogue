@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Attribution component should match the snapshot 1`] = `
+<div
+  className="MuiContainer-root makeStyles-root-1 MuiContainer-maxWidthLg"
+>
+  <a
+    className="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-subtitle1-2 MuiTypography-colorPrimary"
+    href="https://nomics.com"
+    onBlur={[Function]}
+    onFocus={[Function]}
+    target="_blank"
+  >
+    CRYPTO MARKET CAP & PRICING DATA PROVIDED BY NOMICS
+  </a>
+</div>
+`;
