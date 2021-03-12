@@ -5,7 +5,7 @@ import { Autocomplete } from '@material-ui/lab';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { FETCH_DATA } from '../actions';
+import FETCH_DATA from '../actions/FETCH_DATA';
 
 const useStyles = makeStyles({
   root: {
