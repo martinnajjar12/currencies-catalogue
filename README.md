@@ -73,7 +73,7 @@ In order to open it in your browser, you need to dispatch the following command:
   npm start
 ```
 
-**Note:** Please be noted that API may not work on your local computer because you don't have the API KEY.
+**Note:** Please be noted that API may not work on your local computer because you don't have the API KEY. You need to get your key from [nomics.com](https://nomics.com)
 
 ### Run tests
 

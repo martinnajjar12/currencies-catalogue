@@ -1,7 +1,7 @@
 import { Container, Grid } from '@material-ui/core';
 import React from 'react';
 import PropTypes from 'prop-types';
-import Currency from '../components/Currency';
+import Currency from './Currency';
 
 const CurrenciesContainer = ({ currencies }) => {
   const dataWithoutFirstCurrency = currencies.filter(currency => currency.rank !== '1');

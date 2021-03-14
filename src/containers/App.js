@@ -9,7 +9,7 @@ import { Switch, BrowserRouter, Route } from 'react-router-dom';
 import Header from '../components/Header';
 import FeaturedComponent from '../components/FeaturedComponent';
 import Attribution from '../components/Attribution';
-import CurrenciesContainer from './CurrenciesContainer';
+import CurrenciesContainer from '../components/CurrenciesContainer';
 import FILTER from '../actions/FILTER';
 import FETCH_DATA from '../actions/FETCH_DATA';
 import FilterCurrency from '../components/FilterCurrency';
